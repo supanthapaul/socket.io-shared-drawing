@@ -1,0 +1,14 @@
+{
+  "name": "socket-shared-drawing",
+  "version": "1.0.0",
+  "description": "Basic starter files for creating a p5.js project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}
