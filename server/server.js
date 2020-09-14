@@ -1,10 +1,11 @@
 const express = require("express");
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 app.use(express.static('public'));
 
-const server = app.listen(3000, () => {
-	console.log('Server is running at port 3000');
+const server = app.listen(PORT, () => {
+	console.log(`Server is running at port ${PORT}`);
 })
 
 const io = require('socket.io')(server);
@@ -16,5 +17,5 @@ io.on('connection', socket => {
 		console.log(data);
 		// broadcast the data to other client sockets
 		socket.broadcast.emit('draw', data);
-	})
-})
+	});
+});
