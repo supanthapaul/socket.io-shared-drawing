@@ -12,6 +12,19 @@ function setup() {
 	socket = io();
 	// listen for draw event from other socktets
 	socket.on('draw', newDrawing);
+	// listen for join event
+	socket.on("user-join", onNewJoin);
+	
+	// listen for user disconnects from server
+	socket.on('user-left', onUserLeft);
+}
+
+function onNewJoin(id) {
+	createP(`<b>${id}</b>` + " has joined.");
+}
+
+function onUserLeft(id) {
+	createP(`<b>${id}</b>` + " left.");
 }
 
 function newDrawing(data) {
